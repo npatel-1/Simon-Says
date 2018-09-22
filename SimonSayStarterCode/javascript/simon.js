@@ -1,4 +1,5 @@
-$(function(){
+document.addEventListener('DOMContentLoaded',function(){
+
   var lives = 3;
   var score = 0;
   var randomColourSequence = [];
@@ -7,41 +8,50 @@ $(function(){
   var guessCount = 0;
 
   function setUpGame(){
-    $('#lives').html(lives);
-    $('#score').html(score);
-    $('#nextButton').hide();
-    setUpGameListeners();
+    document.getElementById('lives').innerHTML = lives;
+    document.getElementById('score').innerHTML = score;
+    document.getElementById('nextButton').display = 'none';
+      setUpGameListeners();
   }
 
   function setUpGameListeners(){
-    console.log("Add Code Here")
-  }
-
-  function startGame(){
-    document.getElementById("startButton").click(function(){
+    // console.log('Add Code Here');
+    document.getElementById("startButton").addEventListener("click", function(e){
+      console.log("clicked");
       createRandomColourSequence();
-
     })
   }
 
+  function startGame(){
+
+  }
+
   function createRandomColourSequence(){
-    // generate 4 colours
-    let randomNum = Math.floor(Math.random() * 4)
-    randomColourSequence.push(random);
-    for (var i = 0; i < randomColourSequence.length; i++) {
-      randomColourSequence[i] === guessSequence[i];
-      i++
-    }
-  }
-
-  function pickRandomColour(){
 
   }
+
+  // function pickRandomColour(){
+  //
+  //   })
+  document.getElementById("red").onmousedown = function() {mouseDown()};
+  document.getElementById("red").onmouseup = function() {mouseUp()};
+  // document.getElementById("red").addEventListener("onmousedown", mouseDown)
+  // document.getElementById("red").addEventListener("onmousedown", mouseUp)
+  function mouseDown(){
+    // let divColor = e.target.style;
+    // e.target.style.backgroundColor = ("red");
+    document.getElementById("red").style.backgroundColor = ("red");
+    console.log("red");
+  }
+  function mouseUp(){
+    document.getElementById("red").style.backgroundColor = ("white");
+    console.log("white");
+  }
+
+
 
   function showSequence(){
-    document.body.createElement("showSequence")
 
-    randomNum()
   }
 
   function recordMove(){
@@ -70,4 +80,4 @@ $(function(){
 
   setUpGame();
 
-})
+});
